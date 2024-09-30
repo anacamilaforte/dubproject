@@ -45,10 +45,10 @@ document.addEventListener('DOMContentLoaded', function () {
     let selected = words[Math.floor(Math.random() * words.length)];
     let word = selected.word;
     let displayWord = word.replace(/./g, "_ ");
-    let mistakes = 0;
-    let attempts = 0; // Contador de tentativas
-    const maxAttempts = 6; // Máximo de tentativas
-    const hintInterval = 2; // Liberação das dicas a cada 2 tentativas
+    let mistakes = 0; // Contador de erros
+    let attempts = 0; // Contador de tentativas (certas ou erradas)
+    const maxErrors = 6; // Máximo de erros permitidos
+    const hintInterval = 3; // Liberação das dicas a cada 3 tentativas
 
     const wordDisplay = document.getElementById('wordDisplay');
     const hint1 = document.getElementById('hint1');
@@ -87,13 +87,13 @@ document.addEventListener('DOMContentLoaded', function () {
             wordDisplay.textContent = displayWord.trim();
             checkWin();
         } else {
-            mistakes++;
+            mistakes++; // Incrementa os erros se a letra estiver errada
             message.textContent = `Erros: ${mistakes}`;
         }
 
         showHints(); // Mostrar dicas conforme as tentativas
 
-        if (attempts >= maxAttempts) { // Verifica se o limite de tentativas foi atingido
+        if (mistakes >= maxErrors) { // Verifica se o limite de erros foi atingido
             endGame(false);
         }
 
