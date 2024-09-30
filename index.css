@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.game-container {
+    width: 300px;
+    margin: 50px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#wordDisplay {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#hintSection {
+    margin-bottom: 20px;
+}
+
+#hint1, #hint2 {
+    font-size: 16px;
+    display: none;
+}
+
+.letters {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#resetBtn {
+    background-color: #28a745;
+}
+
+#resetBtn:hover {
+    background-color: #218838;
+}
+
+#message {
+    font-size: 18px;
+    color: red;
+    margin-top: 10px;
+}
+
+.strikethrough {
+    position: relative;
+}
+
+.strikethrough::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: black; /* Cor do risquinho */
+    transform: rotate(-45deg); /* Ângulo do risquinho */
+    transform-origin: center;
+}
